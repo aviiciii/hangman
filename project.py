@@ -107,6 +107,9 @@ films = [
 
 
 def main():
+    input('\nHello, press enter to play hangman!')
+    print('\n\n')
+    
     # select a random movie
     movie, year = select_movie()
 
@@ -120,7 +123,7 @@ def main():
     movie_list = [letter for letter in movie]
 
     # run game and get result
-    res = game(ques, movie_list)
+    res = game(ques, movie_list, year)
 
     if res:
         print('Correct!')
@@ -146,7 +149,7 @@ def question(movie_name):
     return q
 
 
-def game(question, movie):
+def game(question, movie, year):
 
     # create moviename in str
     moviename = ''.join(map(str, movie)).strip().lower()
@@ -159,12 +162,19 @@ def game(question, movie):
     
     # initiate counter
     count = 1
+    hint = False
 
     while count < 11 and '_' in question:
-        print(*question)
+        print(*question, '\n')
 
-        answer = input(f'Guess a character ({count} chances left): ').lower().strip()
+        if count > 5 and hint == False:
+            print('To get hint, type \'--hint\'\n')
 
+        answer = input(f'Guess a character ({11-count} chances left): ').lower().strip()
+
+        if answer == '--hint' and count > 5 and hint == False:
+            print(f'The movie was released in {year}\n')
+            hint = True
         if answer in lower_movie:
             while answer in lower_movie:
                 index = lower_movie.index(answer)
@@ -172,6 +182,7 @@ def game(question, movie):
                 lower_movie[index] = 'NULL'
 
         elif answer == moviename:
+            question=moviecp.copy()
             break
 
         else:
@@ -179,7 +190,7 @@ def game(question, movie):
             count+=1
         
     if count < 11:
-        print(*question)
+        print(*question,'\n')
         return True
     return False
 
