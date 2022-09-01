@@ -116,15 +116,16 @@ def main():
     # frame question with blanks
     ques = question(movie)
 
-
+    # create list of moviename
     movie_list = [letter for letter in movie]
 
-    res = ans(ques, movie_list)
+    # run game and get result
+    res = game(ques, movie_list)
 
     if res:
         print('Correct!')
     else:
-        print('Incorrect!')
+        print('Incorrect, try again!')
 
 
 def select_movie():
@@ -145,12 +146,18 @@ def question(movie_name):
     return q
 
 
-def ans(question, movie):
+def game(question, movie):
 
+    # create moviename in str
     moviename = ''.join(map(str, movie)).strip().lower()
+
+    # copy moviename list 
     moviecp = movie.copy()
+
+    # create a list of all elements of movie in lowercase
     lower_movie = [x.lower() for x in movie]
     
+    # initiate counter
     count = 1
 
     while count < 11 and '_' in question:
@@ -168,6 +175,7 @@ def ans(question, movie):
             break
 
         else:
+            # if wrong guess increase counter
             count+=1
         
     if count < 11:
