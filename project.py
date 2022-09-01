@@ -95,7 +95,7 @@ films = [
     '2001: A Space Odyssey (1968)',
     'Requiem for a Dream (2000)',
     'Vertigo (1958)',
-    'M (1931) (Ger.)',
+    'M (1931)',
     'Eternal Sunshine of the Spotless Mind (2004)',
     'The Hunt (2012)',
     'Dangal (2016)',
@@ -107,9 +107,24 @@ films = [
 
 
 def main():
+    # select a random movie
     movie, year = select_movie()
+
+    # print movie name and year
     print(movie, year)
     
+    # frame question with blanks
+    ques = question(movie)
+
+
+    movie_list = [letter for letter in movie]
+
+    res = ans(ques, movie_list)
+
+    if res:
+        print('Correct!')
+    else:
+        print('Incorrect!')
 
 
 def select_movie():
@@ -119,8 +134,46 @@ def select_movie():
         return search.groups()
 
 
-def function_n():
-    ...
+def question(movie_name):
+    q = []
+    for letter in movie_name:
+        if letter.isalpha() or letter.isnumeric():
+            q.append('_')
+        else:
+            q.append(letter)
+
+    return q
+
+
+def ans(question, movie):
+
+    moviename = ''.join(map(str, movie)).strip().lower()
+    moviecp = movie.copy()
+    lower_movie = [x.lower() for x in movie]
+    
+    count = 1
+
+    while count < 11 and '_' in question:
+        print(*question)
+
+        answer = input(f'Guess a character ({count} chances left): ').lower().strip()
+
+        if answer in lower_movie:
+            while answer in lower_movie:
+                index = lower_movie.index(answer)
+                question[index] =  moviecp[index]
+                lower_movie[index] = 'NULL'
+
+        elif answer == moviename:
+            break
+
+        else:
+            count+=1
+        
+    if count < 11:
+        print(*question)
+        return True
+    return False
 
 
 if __name__ == "__main__":
