@@ -2,7 +2,6 @@ import random
 import re
 
 films = [
-    'The Lord of the Rings: The Fellowship of the Ring (2001)',
     'The Godfather (1972)',
     'The Shawshank Redemption (1994)',
     'The Godfather, Part II (1974)',
@@ -53,18 +52,70 @@ films = [
     'Hamilton (2020)',
     'Once Upon a Time in the West (1969)',
     'Casablanca (1942)',
+    'Dr. Strangelove or: How I Learned To Stop Worrying and Love the Bomb (1964)',
+    'Cinema Paradiso (1988)',
+    'Rear Window (1954)',
+    'Alien (1979)',
+    'Apocalypse Now (1979)',
+    'Memento (2000)',
+    'The Great Dictator (1940)',
+    'Raiders of the Lost Ark (1981)',
+    'Django Unchained (2012)',
+    'The Lives of Others (2006)',
+    'Joker (2019)',
+    'Paths of Glory (1957)',
+    'WALL-E (2008)',
+    'The Shining (1980)',
+    'Avengers: Infinity War (2018)',
+    'Sunset Boulevard (1950)',
+    'Witness For the Prosecution (1957)',
+    'Spider-Man: Into the Spider-Verse (2018)',
+    'Oldboy (2003)',
+    'Princess Mononoke (1997)',
+    'Dr. Strangelove or: How I Learned To Stop Worrying and Love the Bomb (1964)',
+    'The Dark Knight Rises (2012)',
+    'Once Upon a Time in America (1984)',
+    'Aliens (1986)',
+    'Your Name. (2016)',
+    'Avengers: Endgame (2019)',
+    'Coco (2017)',
+    'American Beauty (1999)',
+    'Braveheart (1995)',
+    'Das Boot (1981)',
+    '3 Idiots (2009)',
+    'Toy Story (1995)',
+    'High and Low (1963)',
+    'Capernaum (2018)',
+    'Amadeus (1984)',
+    'Inglourious Basterds (2009)',
+    'Star Wars: Episode VI - Return of the Jedi (1983)',
+    'Like Stars on Earth (2007)',
+    'Good Will Hunting (1997)',
+    'Reservoir Dogs (1992)',
+    '2001: A Space Odyssey (1968)',
+    'Requiem for a Dream (2000)',
+    'Vertigo (1958)',
+    'M (1931) (Ger.)',
+    'Eternal Sunshine of the Spotless Mind (2004)',
+    'The Hunt (2012)',
+    'Dangal (2016)',
+    'Citizen Kane (1941)',
+    '1917 (2019)',
+    'Full Metal Jacket (1987)',
+    'The Bicycle Thief (1948)',
 ]
 
 
 def main():
     movie, year = select_movie()
+    print(movie, year)
+    
 
 
 def select_movie():
     movie = random.choices(films)
-    print(movie)
-
-    if search := re.search(r'^([A-Za-z0-9_.:,\' ]*) \((\d{4})\)$', movie[0]):
+    
+    if search := re.search(r'^([A-Za-z0-9_.-:,\' ]*) \((\d{4})\)$', movie[0]):
         return search.groups()
 
 
