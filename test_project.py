@@ -1,12 +1,12 @@
-# from project import ...
+from project import select_movie, question, game
 
-def test_function_1():
+def test_select_movie():
     ...
 
 
-def test_function_2():
+def test_question():
     ...
 
 
-def test_function_n():
+def test_game():
     ...

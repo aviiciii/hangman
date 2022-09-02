@@ -109,9 +109,9 @@ films = [
 def main():
     input('\nHello, press enter to play hangman!')
     print('\n\n')
-    
+
     # select a random movie
-    movie, year = select_movie()
+    movie, year = select_movie(films)
 
     # print movie name and year
     print(movie, year)
@@ -131,7 +131,7 @@ def main():
         print('Incorrect, try again!')
 
 
-def select_movie():
+def select_movie(films):
     movie = random.choices(films)
     
     if search := re.search(r'^([A-Za-z0-9_.-:,\' ]*) \((\d{4})\)$', movie[0]):
@@ -170,11 +170,12 @@ def game(question, movie, year):
         if count > 5 and hint == False:
             print('To get hint, type \'--hint\'\n')
 
-        answer = input(f'Guess a character ({11-count} chances left): ').lower().strip()
+        answer = input(f'Guess a character or the movie name ({11-count} chances left): ').lower().strip()
 
         if answer == '--hint' and count > 5 and hint == False:
             print(f'The movie was released in {year}\n')
             hint = True
+            
         if answer in lower_movie:
             while answer in lower_movie:
                 index = lower_movie.index(answer)
