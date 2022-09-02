@@ -52,7 +52,6 @@ films = [
     'Hamilton (2020)',
     'Once Upon a Time in the West (1969)',
     'Casablanca (1942)',
-    'Dr. Strangelove or: How I Learned To Stop Worrying and Love the Bomb (1964)',
     'Cinema Paradiso (1988)',
     'Rear Window (1954)',
     'Alien (1979)',
@@ -110,6 +109,7 @@ def main():
     input('\nHello, press enter to play hangman!')
     print('\n\n')
 
+    
     # select a random movie
     movie, year = select_movie(films)
 
@@ -125,10 +125,7 @@ def main():
     # run game and get result
     res = game(ques, movie_list, year)
 
-    if res:
-        print('Correct!')
-    else:
-        print('Incorrect, try again!')
+    print(get_result(res))
 
 
 def select_movie(films):
@@ -176,7 +173,7 @@ def game(question, movie, year):
             print(f'The movie was released in {year}\n')
             hint = True
             
-        if answer in lower_movie:
+        elif answer in lower_movie:
             while answer in lower_movie:
                 index = lower_movie.index(answer)
                 question[index] =  moviecp[index]
@@ -194,6 +191,13 @@ def game(question, movie, year):
         print(*question,'\n')
         return True
     return False
+
+
+def get_result(result):
+    if result:
+        return 'Correct!'
+    else:
+        return 'Incorrect, try again!'
 
 
 if __name__ == "__main__":
