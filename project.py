@@ -114,8 +114,8 @@ def main():
     # select a random movie
     movie, year = select_movie(films)
 
-    # print movie name and year
-    print(f'(Demo purpose - Movie name : {movie})\n')
+    # print movie name and year - DEMO
+    # print(f'(Demo purpose - Movie name : {movie})\n')
     
     # frame question with blanks
     ques = question(movie)
