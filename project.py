@@ -107,7 +107,8 @@ films = [
 
 def main():
     input('\nHello, press enter to play hangman!')
-    print('\n\n')
+    print('\nEnter -e or --exit to end game')
+    print('Enter -r or --retry to restart game with another movie.\n\n')
 
     
     # select a random movie
@@ -127,7 +128,9 @@ def main():
 
     if res == 'exit':
         print('Game Ended.')
-    print(get_result(res))
+        return
+    if res == True or res == False: 
+        print(get_result(res))
 
 
 def select_movie(films):
@@ -167,7 +170,7 @@ def game(question, movie, year):
         print(*question, '\n')
 
         if count > 5 and hint == False:
-            print('To get hint, type \'--hint\'\n')
+            print('To get hint, enter \'--hint\'\n')
 
         answer = input(f'Guess a character or the movie name ({11-count} chances left): ').lower().strip()
 
@@ -175,8 +178,13 @@ def game(question, movie, year):
             print(f'The movie was released in {year}\n')
             hint = True
         
-        elif answer == '--exit' or answer == '--quit':
+        elif answer == '--exit' or answer == '-e' or answer == '--quit':
             return 'exit'
+
+        elif answer == '-r' or answer == '--retry':
+            print('\n')
+            return main()
+
         elif answer in lower_movie:
             while answer in lower_movie:
                 index = lower_movie.index(answer)
