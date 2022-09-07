@@ -114,7 +114,7 @@ def main():
     movie, year = select_movie(films)
 
     # print movie name and year
-    print(movie, year)
+    print(f'(Demo purpose - Movie name : {movie})\n')
     
     # frame question with blanks
     ques = question(movie)
@@ -125,6 +125,8 @@ def main():
     # run game and get result
     res = game(ques, movie_list, year)
 
+    if res == 'exit':
+        print('Game Ended.')
     print(get_result(res))
 
 
@@ -172,7 +174,9 @@ def game(question, movie, year):
         if answer == '--hint' and count > 5 and hint == False:
             print(f'The movie was released in {year}\n')
             hint = True
-            
+        
+        elif answer == '--exit' or answer == '--quit':
+            return 'exit'
         elif answer in lower_movie:
             while answer in lower_movie:
                 index = lower_movie.index(answer)
