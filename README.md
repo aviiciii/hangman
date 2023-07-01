@@ -1,23 +1,38 @@
 # HANGMAN GAME
-### Video Demo: https://youtu.be/w0K4eoSaBMw
-## Description:
-The final project is a hangman game made using python and is playable in the terminal by running the project.py file. A movie is chosen at random from a predetermined list of movies that were taken from IMDb's top 100 movies list (as per August 2022).
 
-The program consists of a main function and 4 other subprograms/functions namely select_movie, question, game, get_result which are called from the main funtion in the respective order.
+[Video Demo](https://youtu.be/w0K4eoSaBMw)
 
-### Project Requirements:
-&#9745; Your project must be implemented in Python.
+## Description
 
-&#9745; Your project must have a main function and at least three other functions, each of which must be accompanied by tests that can be executed with pytest.
+Hangman Game is a terminal-based game implemented in Python. It allows players to guess letters to uncover a hidden word, with each incorrect guess leading to the drawing of a hangman. The word to be guessed is randomly chosen from a list of movies sourced from IMDb's top 100 movies list (as of August 2022).
 
-&#9745; Your main function must be in a file called project.py, which should be in the “root” (i.e., top-level folder) of your project.
+The game consists of a main function and four other subprograms/functions: `select_movie`, `question`, `game`, and `get_result`. These functions are called from the main function in the respective order to control the flow of the game.
 
-&#9745; Your 3 required custom functions other than main must also be in project.py and defined at the same indentation level as main (i.e., not nested under any classes or functions).
+## Project Requirements
 
-&#9745; Your test functions must be in a file called test_project.py, which should also be in the “root” of your project. Be sure they have the same name as your custom functions, prepended with test_ (test_custom_function, for example, where custom_function is a function you’ve implemented in project.py).
+- The project must be implemented in Python.
+- It should have a main function and at least three other functions, each accompanied by tests that can be executed with pytest.
+- The main function should be in a file called `project.py`, located in the root folder of the project.
+- The three required custom functions (other than the main function) should also be in `project.py` and defined at the same indentation level as the main function.
+- The test functions should be in a file called `test_project.py`, also located in the root folder of the project. The test functions should have the same name as the custom functions, prepended with `test_`.
+- Additional classes and functions can be implemented as desired.
+- Any pip-installable libraries required by the project should be listed, one per line, in a file called `requirements.txt` in the root of the project.
 
-&#9745; You are welcome to implement additional classes and functions as you see fit beyond the minimum requirement.
+## Usage
 
-&#9745; Implementing your project should entail more time and effort than is required by each of the course’s problem sets.
+1. Clone the repository: `git clone https://github.com/aviiciii/hangman-game.git`
+2. Install the required dependencies using pip: `pip install -r requirements.txt`
+3. Run the game by executing `project.py` in the terminal: `python project.py`
+4. Follow the prompts to play the game and guess the hidden word.
+5. Have fun playing Hangman!
 
-&#9745; Any pip-installable libraries that your project requires must be listed, one per line, in a file called requirements.txt in the root of your project.
+## Contributions
+
+Contributions to this repository are generally not accepted, as the project was developed as part of a course assignment. However, if you have suggestions or improvements specific to this project, feel free to open an issue or submit a pull request. Your feedback can help enhance the game and improve the user experience.
+
+## License
+
+This project is licensed under the MIT License. Please see the [LICENSE](LICENSE) file for more information.
+
+Enjoy playing Hangman and challenge yourself to guess the hidden words!
+
